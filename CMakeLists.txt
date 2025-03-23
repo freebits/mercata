@@ -4,7 +4,10 @@ project(mercata LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(mercata src/main.cpp)
-
 find_package(Threads REQUIRED)
-target_link_libraries(mercata PRIVATE Threads::Threads)
+
+add_executable(mercata_server src/mercata_server.cpp)
+target_link_libraries(mercata_server PRIVATE Threads::Threads)
+
+add_executable(mercata_client src/mercata_client.cpp)
+target_link_libraries(mercata_client PRIVATE Threads::Threads)
